@@ -1,0 +1,27 @@
+<div class="container mt-3">
+    
+<table class="table" >
+    <thead>
+      <tr>
+        <th scope="col" >#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Indirizzo web</th>
+        <th scope="col">Politiche di spedizione</th>
+        <th scope="col">Azioni</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let s of shopsList">
+        <th scope="row"  >{{s.id}}</th>
+        <td>{{s.nome}}</td>
+        <td>{{s.indirizzo_web}}</td>
+        <td>{{s.politiche_di_spedizione}}</td>
+        <td><button type="button" class="btn btn-primary ">
+           
+            Visualizza
+                      </button></td>
+      </tr>
+    
+    </tbody>
+  </table>
+</div>

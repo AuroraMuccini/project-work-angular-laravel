@@ -16,8 +16,8 @@ class CreateShopsTable extends Migration
         Schema::create('shops', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->string('indirizzo-web');
-            $table->string('politiche-di-spedizione');
+            $table->string('indirizzo_web');
+            $table->string('politiche_di_spedizione');
             $table->timestamps();
         });
     }

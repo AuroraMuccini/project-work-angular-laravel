@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 
 // //POST http://localhost:8000/api/shops
-// Route::post('/shops', [ShopController::class, 'create']);
+ Route::post('/shops', [ShopController::class, 'create']);
 
 //GET http://localhost:8000/api/shops/3
 Route::get('/shops/{id}', [ShopController::class, 'read']);
@@ -26,7 +26,7 @@ Route::get('/shops', [ShopController::class, 'readAll']);
 
 
 // //POST http://localhost:8000/api/products
-// Route::post('/products', [ProductController::class, 'create']);
+Route::post('/products', [ProductController::class, 'create']);
 
 //GET http://localhost:8000/api/products/3
 Route::get('/products/{id}', [ProductController::class, 'read']);
