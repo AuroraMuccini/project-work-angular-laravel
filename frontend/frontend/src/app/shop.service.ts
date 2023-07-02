@@ -16,5 +16,10 @@ export class ShopService {
     return this.http.get<Shop[]>('http://localhost:8000/api/shops')
     .toPromise();
     }
+
+  getShop(shop_id:string | null): Promise<Shop[] | undefined> {
+    return this.http.get<Shop[]>('http://localhost:8000/api/shops/'+ shop_id)
+    .toPromise();
+    }
  
 }

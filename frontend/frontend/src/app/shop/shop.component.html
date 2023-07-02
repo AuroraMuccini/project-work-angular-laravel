@@ -1,0 +1,27 @@
+<div class="container mt-3">
+    
+    <table class="table table-striped" >
+        <thead>
+          <tr>
+            <th scope="col" >#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Descrizione</th>
+            <th scope="col">Prezzo</th>
+            <th scope="col">Indietro</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr   *ngFor="let elemento of productsList.products">
+            <th scope="row" >{{elemento.id}}</th>
+            <td>{{elemento.nome}}</td>
+            <td>{{elemento.descrizione}}</td>
+            <td>{{elemento.prezzo}} €</td>
+            <td><button type="button" class="btn btn-primary " routerLink="shops/">
+              Indietro
+              
+                          </button></td>
+          </tr>
+        
+        </tbody>
+      </table>
+    </div>

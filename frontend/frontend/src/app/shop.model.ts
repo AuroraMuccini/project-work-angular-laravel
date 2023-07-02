@@ -5,8 +5,8 @@ export class Shop{
     politiche_di_spedizione: string | undefined 
     created_at: string | undefined
     updated_at: string | undefined
-    products: [
-        {
+    products: 
+        [{
             id: number
             nome: string
             descrizione: string
@@ -15,6 +15,6 @@ export class Shop{
             created_at: string
             updated_at: string
 
-        }
-    ] | undefined
+        }]
+     | undefined
 }

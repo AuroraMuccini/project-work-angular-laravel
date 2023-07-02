@@ -1,24 +1,24 @@
 <div class="container mt-3">
     
-<table class="table" >
+<table class="table table-striped" >
     <thead>
       <tr>
         <th scope="col" >#</th>
         <th scope="col">Nome</th>
         <th scope="col">Indirizzo web</th>
         <th scope="col">Politiche di spedizione</th>
-        <th scope="col">Azioni</th>
+        <th scope="col">Visualizza prodotti</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let s of shopsList">
         <th scope="row"  >{{s.id}}</th>
         <td>{{s.nome}}</td>
-        <td>{{s.indirizzo_web}}</td>
+        <td><a href="{{s.indirizzo_web}}">{{s.indirizzo_web}}</a></td>
         <td>{{s.politiche_di_spedizione}}</td>
-        <td><button type="button" class="btn btn-primary ">
-           
-            Visualizza
+        <td><button type="button" class="btn btn-primary " routerLink="shops/{{s.id}}">
+          <i class="fa-solid fa-eye"></i>
+          
                       </button></td>
       </tr>
     

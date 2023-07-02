@@ -31,11 +31,19 @@ class ShopController extends Controller
 
     }
     public function read(Request $request, $id) {
+        //per leggere sia i negozi che i prodotti dei negozi
+            $shop = Shop::with('products')->findOrFail($id);
+            return response()->json($shop);
         
-        $shop= Shop::where('id','=',$id)->firstOrFail();
-        return response()->json($shop);
 
     }
+  
+//     public function readForAShop(Request $request, $id) {
+//     $shop = Shop::with('products')->findOrFail($id);
+//     $products = $shop->products;
+//     return response()->json($products);
+// }
+
 
 
     public function readAll(Request $request) {

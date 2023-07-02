@@ -30,5 +30,8 @@ Route::post('/products', [ProductController::class, 'create']);
 
 //GET http://localhost:8000/api/products/3
 Route::get('/products/{id}', [ProductController::class, 'read']);
+//GET http://localhost:8000/api/products/3
+Route::get('/products/{id}', [ProductController::class, 'readforAShop']);
+
 //GET http://localhost:8000/api/products
 Route::get('/products', [ProductController::class, 'readAll']);
