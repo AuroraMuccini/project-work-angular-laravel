@@ -2,8 +2,9 @@ import { Input, Component } from '@angular/core';
 
 import { Shop } from '../shop.model';
 import { ShopService } from '../shop.service';
-import { UntypedFormArray } from '@angular/forms';
+
 import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-shop',
@@ -13,30 +14,36 @@ import { ActivatedRoute } from '@angular/router';
 
   
 export class ShopComponent {
-  // @Input() shop: Shop[];
-  productsList: Shop[] |any| undefined;
-  
-  
+
+  @Input() productsList: Shop | undefined = undefined;
+dynamicUrlImage:string = "";
+
   id = this.activatedRoute.snapshot.paramMap.get('id');
   constructor(private shopService: ShopService,
     private activatedRoute: ActivatedRoute) { }
     ngOnInit(): void {
-        console.log('FilmComponent.ngOnInit(): film id=', this.id);
+        console.log('ShopComponent.ngOnInit(): shop id=', this.id);
         if(this.id != null ){
             this.shopService.getShop(this.id).then((x) => {
                 this.productsList = x;
-                console.log(this.productsList)
-        
+                
+                if(this.productsList?.nome == "Zara"){
+                  this.dynamicUrlImage= "../../assets/Zara-Logo.png"
+                }else if(this.productsList?.nome == "Bershka"){
+                  this.dynamicUrlImage= "../../assets/Bershka-Logo.png"
+                }else{
+                  this.dynamicUrlImage= "../../assets/Dior-Logo.png"
+                }
             })
- 
-   
-}}}
 
-      // console.log('FilmComponent.ngOnInit(): product id=', id);
-      // if (id != null) {
-      //   this.shop = this.shopService.getShop(Number(id));
-      //   console.log('FilmComponent.ngOnInit(): film ', this.shop);
-      //   }
+            
+          }
+    }
+        
+        
+      }
+      
+    
     
    
     
@@ -44,3 +51,5 @@ export class ShopComponent {
 
   
   
+
+

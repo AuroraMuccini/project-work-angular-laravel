@@ -18,6 +18,7 @@ class CreateShopsTable extends Migration
             $table->string('nome');
             $table->string('indirizzo_web');
             $table->string('politiche_di_spedizione');
+            $table->string('url');
             $table->timestamps();
         });
     }

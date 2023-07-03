@@ -1,5 +1,22 @@
-<div class="container mt-3">
-    
+<div class="container mt-3" *ngIf="productsList">
+  <div class="barra_titolo mb-3 pt-1 container" style="margin: auto;">
+ <h1 style="text-align: center; color: white; ">Lista prodotti</h1>
+  
+</div>
+
+<div class="card mb-3 p-3 container" style="margin: auto; width: 500px;">
+  
+  <table class="table text-center">
+    <tr><th>Dettagli negozio:</th></tr>
+    <tr >
+      <td>Nome: {{productsList.nome}}</td>
+    </tr>
+    <tr> <td>Indirizzo web: <a href="{{productsList.indirizzo_web}}"><img [src]="dynamicUrlImage" style="width: 50px; ">   </a></td></tr>
+    <tr><td>Politica di spedizione: {{productsList.politiche_di_spedizione}}</td></tr>
+  </table>
+</div>
+
+<div >
     <table class="table table-striped" >
         <thead>
           <tr>
@@ -10,12 +27,13 @@
             <th scope="col">Indietro</th>
           </tr>
         </thead>
-        <tbody>
-          <tr   *ngFor="let elemento of productsList.products">
-            <th scope="row" >{{elemento.id}}</th>
-            <td>{{elemento.nome}}</td>
-            <td>{{elemento.descrizione}}</td>
-            <td>{{elemento.prezzo}} €</td>
+        <tbody >
+          <tr>
+          <tr *ngFor="let elemento of productsList.products"> 
+            <th scope="row" >{{elemento.id}}</th> 
+            <td>{{elemento.nome}}</td> 
+              <td>{{elemento.descrizione}}</td>  
+             <td>{{elemento.prezzo}} €</td>  
             <td><button type="button" class="btn btn-primary " routerLink="shops/">
               Indietro
               
@@ -25,3 +43,4 @@
         </tbody>
       </table>
     </div>
+  </div>

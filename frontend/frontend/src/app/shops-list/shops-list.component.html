@@ -1,27 +1,28 @@
-<div class="container mt-3">
-    
+<div class="container mt-3" >
+  <div class="barra_titolo mb-3" style="margin: auto;">
+    <h1 style="text-align: center; color: white; ">   Lista negozi</h1>
+  </div>
+
+  
 <table class="table table-striped" >
-    <thead>
-      <tr>
-        <th scope="col" >#</th>
-        <th scope="col">Nome</th>
-        <th scope="col">Indirizzo web</th>
-        <th scope="col">Politiche di spedizione</th>
-        <th scope="col">Visualizza prodotti</th>
-      </tr>
-    </thead>
     <tbody>
-      <tr *ngFor="let s of shopsList">
-        <th scope="row"  >{{s.id}}</th>
-        <td>{{s.nome}}</td>
-        <td><a href="{{s.indirizzo_web}}">{{s.indirizzo_web}}</a></td>
-        <td>{{s.politiche_di_spedizione}}</td>
-        <td><button type="button" class="btn btn-primary " routerLink="shops/{{s.id}}">
-          <i class="fa-solid fa-eye"></i>
+      <tr>
+      <div class= "card mb-3" *ngFor="let s of shopsList;"  style="width: 500px; margin: auto;">
+        <img src="{{s.url}}" alt="{{s.nome}}" style="width: 80px; margin: auto; " class="mt-3">
+        <th scope="row" class="mb-3"># {{s.id}}</th>
+        <td class="mb-3"><i class="fa-solid fa-shop"></i> Nome: {{s.nome}}</td>
+        <td class="mb-3"><i class="fa-solid fa-link"></i> Indirizzo web: <a href="{{s.indirizzo_web}}" class="link-info">{{s.nome}}</a></td>
+        <td class="mb-3"><i class="fa-solid fa-truck-fast"></i> Politiche di spedizione: {{s.politiche_di_spedizione}}</td>
+        <td class="mb-3">Visualizza prodotti: <button type="button" class="btn btn-primary "  routerLink="shops/{{s.id}}">
+          <i class="fa-solid fa-eye" ></i>
           
-                      </button></td>
+        </button></td>
+      </div>
       </tr>
-    
+      
     </tbody>
   </table>
+
 </div>
+
+

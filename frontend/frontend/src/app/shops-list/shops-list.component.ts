@@ -12,11 +12,14 @@ import { ShopService } from '../shop.service';
 })
 export class ShopsListComponent {
 shopsList: Shop[] | undefined;
+urlList: string[] | undefined 
 
   constructor(private shopService: ShopService) { }
   ngOnInit(): void {
     this.shopService.getShopList().then((x) => {
       this.shopsList = x;
+
+      
     });
   }
 }

@@ -42,6 +42,7 @@ class ProductController extends Controller
         //Operazione di SELECT su DB
             
             $product= Product::with('shops')->get();
+            //id dello shop
             
             return response()->json($product,200);
     

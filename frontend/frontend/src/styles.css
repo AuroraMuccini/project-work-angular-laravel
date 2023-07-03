@@ -1,5 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@fortawesome/fontawesome-free/css/all.css';
+
+@import url('https://fonts.googleapis.com/css2?family=Amiko&display=swap');
+
+
+
 *{
-    font-size: 19px;
+    font-family: Amiko;
 }
