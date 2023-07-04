@@ -11,15 +11,13 @@ import { ShopService } from '../shop.service';
   styleUrls: ['./shops-list.component.css']
 })
 export class ShopsListComponent {
-shopsList: Shop[] | undefined;
-urlList: string[] | undefined 
+  shopsList: Shop[] | undefined;
+
 
   constructor(private shopService: ShopService) { }
   ngOnInit(): void {
     this.shopService.getShopList().then((x) => {
       this.shopsList = x;
-
-      
     });
   }
 }

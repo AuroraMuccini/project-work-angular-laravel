@@ -12,44 +12,50 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./shop.component.css']
 })
 
-  
+
 export class ShopComponent {
 
   @Input() productsList: Shop | undefined = undefined;
-dynamicUrlImage:string = "";
-
+  dynamicUrlImage: string = "";
+  mostraElemento: boolean = false
   id = this.activatedRoute.snapshot.paramMap.get('id');
+
+  mostraInfo() {
+    this.mostraElemento = !this.mostraElemento
+  }
+
   constructor(private shopService: ShopService,
     private activatedRoute: ActivatedRoute) { }
-    ngOnInit(): void {
-        console.log('ShopComponent.ngOnInit(): shop id=', this.id);
-        if(this.id != null ){
-            this.shopService.getShop(this.id).then((x) => {
-                this.productsList = x;
-                
-                if(this.productsList?.nome == "Zara"){
-                  this.dynamicUrlImage= "../../assets/Zara-Logo.png"
-                }else if(this.productsList?.nome == "Bershka"){
-                  this.dynamicUrlImage= "../../assets/Bershka-Logo.png"
-                }else{
-                  this.dynamicUrlImage= "../../assets/Dior-Logo.png"
-                }
-            })
 
-            
-          }
+  ngOnInit(): void {
+    console.log('ShopComponent.ngOnInit(): shop id=', this.id);
+    if (this.id != null) {
+      this.shopService.getShop(this.id).then((x) => {
+        this.productsList = x;
+
+        if (this.productsList?.nome == "Zara") {
+          this.dynamicUrlImage = "../../assets/Zara-Logo.png"
+        } else if (this.productsList?.nome == "Bershka") {
+          this.dynamicUrlImage = "../../assets/Bershka-Logo.png"
+        } else {
+          this.dynamicUrlImage = "../../assets/Dior-Logo.png"
+        }
+      })
+
+
     }
-        
-        
-      }
-      
-    
-    
-   
-    
+  }
 
 
-  
-  
+}
+
+
+
+
+
+
+
+
+
 
 

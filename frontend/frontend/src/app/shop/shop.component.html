@@ -1,46 +1,51 @@
 <div class="container mt-3" *ngIf="productsList">
   <div class="barra_titolo mb-3 pt-1 container" style="margin: auto;">
- <h1 style="text-align: center; color: white; ">Lista prodotti</h1>
-  
-</div>
+    <h1 style="text-align: center; color: white; ">Lista prodotti</h1>
 
-<div class="card mb-3 p-3 container" style="margin: auto; width: 500px;">
-  
-  <table class="table text-center">
-    <tr><th>Dettagli negozio:</th></tr>
-    <tr >
-      <td>Nome: {{productsList.nome}}</td>
-    </tr>
-    <tr> <td>Indirizzo web: <a href="{{productsList.indirizzo_web}}"><img [src]="dynamicUrlImage" style="width: 50px; ">   </a></td></tr>
-    <tr><td>Politica di spedizione: {{productsList.politiche_di_spedizione}}</td></tr>
-  </table>
-</div>
-
-<div >
-    <table class="table table-striped" >
-        <thead>
-          <tr>
-            <th scope="col" >#</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Descrizione</th>
-            <th scope="col">Prezzo</th>
-            <th scope="col">Indietro</th>
-          </tr>
-        </thead>
-        <tbody >
-          <tr>
-          <tr *ngFor="let elemento of productsList.products"> 
-            <th scope="row" >{{elemento.id}}</th> 
-            <td>{{elemento.nome}}</td> 
-              <td>{{elemento.descrizione}}</td>  
-             <td>{{elemento.prezzo}} €</td>  
-            <td><button type="button" class="btn btn-primary " routerLink="shops/">
-              Indietro
-              
-                          </button></td>
-          </tr>
-        
-        </tbody>
-      </table>
-    </div>
   </div>
+
+  <button class="btn btn-secondary mb-3" (click)="mostraInfo()">Dettagli negozio</button>
+  <div class="card mb-3 p-3 container" *ngIf="mostraElemento">
+
+    <table class="table text-center">
+      <tr>
+        <td>Nome: {{productsList.nome}}</td>
+      </tr>
+      <tr>
+        <td>Indirizzo web: <a href="{{productsList.indirizzo_web}}"><img [src]="dynamicUrlImage" style="width: 50px; ">
+          </a></td>
+      </tr>
+      <tr>
+        <td>Politica di spedizione: {{productsList.politiche_di_spedizione}}</td>
+      </tr>
+    </table>
+  </div>
+
+  <div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Descrizione</th>
+          <th scope="col">Prezzo</th>
+          <th scope="col">Indietro</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+        <tr *ngFor="let elemento of productsList.products">
+          <th scope="row">{{elemento.id}}</th>
+          <td>{{elemento.nome}}</td>
+          <td>{{elemento.descrizione}}</td>
+          <td>{{elemento.prezzo}} €</td>
+          <td><button type="button" class="btn btn-primary " routerLink="shops/">
+              Indietro
+
+            </button></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ShopsListComponent } from './shops-list/shops-list.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'shops/:id', component: ShopComponent },
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
-  ];
+];
 
 @NgModule({
 
